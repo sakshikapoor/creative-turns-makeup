@@ -22,8 +22,8 @@ Edit `public/admin/config.yml` and replace both placeholder URLs with your real
 Netlify URL:
 
 ```yaml
-site_url: https://YOUR-SITE.netlify.app
-display_url: https://YOUR-SITE.netlify.app
+site_url: https://creativeturns.netlify.app
+display_url: https://creativeturns.netlify.app
 ```
 
 ## 4. Turn on Deploy Previews
@@ -74,7 +74,7 @@ access. She accepts the emailed invite — that is the only time she sees GitHub
 
 ## 8. Send her the link
 
-Send her `https://YOUR-SITE.netlify.app/admin/`, plus the username and password
+Send her `https://creativeturns.netlify.app/admin/`, plus the username and password
 from step 6, and `EDITING.md`. Tell her to bookmark the link.
 
 Send the password over something other than the same channel as the link if you

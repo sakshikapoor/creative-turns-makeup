@@ -2,7 +2,7 @@
 
 You don't need to install anything. Everything happens on one web page.
 
-**Your link:** `https://YOUR-SITE.netlify.app/admin/` — bookmark it.
+**Your link:** `https://creativeturns.netlify.app/admin/` — bookmark it.
 
 You'll sign in twice, once each:
 

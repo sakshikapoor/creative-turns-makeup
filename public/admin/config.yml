@@ -11,8 +11,8 @@ publish_mode: editorial_workflow
 media_folder: public/images
 public_folder: /images
 
-site_url: https://creative-turns.netlify.app        # <-- CHANGE to your live URL
-display_url: https://creative-turns.netlify.app     # <-- CHANGE to your live URL
+site_url: https://creativeturns.netlify.app
+display_url: https://creativeturns.netlify.app
 
 locale: en
 
