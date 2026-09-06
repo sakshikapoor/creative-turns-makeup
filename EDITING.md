@@ -4,16 +4,15 @@ You don't need to install anything. Everything happens on one web page.
 
 **Your link:** `https://creativeturns.netlify.app/admin/` — bookmark it.
 
-You'll sign in twice, once each:
+Click **Login with GitHub** and sign in with **your own** GitHub account — the
+free one you made, using your own email and your own password. That is the only
+login, and after the first time your browser remembers it.
 
-1. **A grey box pops up asking for a username and password.** Sakshi will send
-   you these. Tick "remember" if your browser offers to.
-2. **Then click "Login with GitHub"** and sign in with your GitHub account.
+You are not logging into Sakshi's account and you never see her password. She has
+simply given your account permission to edit this one website.
 
-After the first time your browser remembers both, and you'll go straight in.
-
-> Seeing the grey box again? That's normal after clearing your browser history or
-> switching to a different device. Just type them in again.
+> Asked to sign in again? That's normal after clearing your browser history or
+> switching to a new device. Just sign in with GitHub again.
 
 ---
 

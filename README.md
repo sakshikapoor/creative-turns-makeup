@@ -12,11 +12,11 @@ npm run build    # production bundle into dist/
 npm run preview  # serve the production build
 ```
 
-`npm start` runs `netlify dev`, which is the only way to exercise the `/admin`
-password locally — plain `npm run dev` does not run edge functions, and it also
+`npm start` runs `netlify dev`, which is the only way to exercise `/admin` and the
+OAuth functions locally — plain `npm run dev` does not run functions, and it also
 serves `/admin/` incorrectly because Vite's SPA fallback intercepts it.
 
-Copy `.env.example` to `.env` first and set `ADMIN_USER` / `ADMIN_PASSWORD`.
+Copy `.env.example` to `.env` first and fill in the GitHub OAuth app values.
 
 ## Structure
 
@@ -30,7 +30,6 @@ src/data/*.js           thin re-exports of the content files below
 content/*.json          all editable text and photo references
 public/images/          photos uploaded through the CMS
 public/admin/           the browser-based editing screen (Decap CMS)
-netlify/edge-functions/ Basic Auth guarding /admin
 netlify/functions/      GitHub OAuth handshake for the CMS login
 netlify.toml            build + deploy-preview settings
 legacy-index.html       the original static page, kept for reference
@@ -45,8 +44,9 @@ Non-technical editors change text and photos at `/admin/` on the deployed site.
 Saving creates a draft with its own preview URL; pressing Publish merges it to
 `main` and the site redeploys.
 
-`/admin` is guarded by two independent locks: an HTTP Basic Auth edge function
-(who can load the screen) and GitHub collaborator permissions (who can save).
+Access is controlled by one thing: **GitHub collaborator permission on a private
+repo.** `/admin` is a public URL, but a visitor without repo access gets a token
+that can neither read nor write, so the editor is an empty shell to them.
 
 The GitHub login handshake is self-hosted in `netlify/functions/` because
 Netlify's old hosted service at `api.netlify.com/auth` now returns 404.

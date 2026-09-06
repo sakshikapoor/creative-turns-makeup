@@ -53,7 +53,7 @@ You still need a GitHub OAuth app so GitHub knows to trust the site:
    **secret** now; GitHub will not show the secret again.
 
 3. Add them in Netlify → **Site configuration → Environment variables**, the same
-   place as the editor password:
+   place, scoped to **all scopes**:
 
    | Key | Value |
    |---|---|
@@ -65,25 +65,17 @@ You still need a GitHub OAuth app so GitHub knows to trust the site:
 The secret only ever lives in Netlify's environment. It is never in the repo and
 never reaches the browser.
 
-## 6. Set the editor password
+## 6. Make the repo private
 
-The `/admin` screen sits behind a username and password as well as the GitHub
-login. Set them in **Site configuration → Environment variables**:
+**GitHub → repo Settings → General → Danger Zone → Change repository visibility
+→ Make private.**
 
-| Key | Value |
-|---|---|
-| `ADMIN_USER` | e.g. `creativeturns` |
-| `ADMIN_PASSWORD` | a strong password you choose |
+This is what keeps the site private, and it is why your friend only needs one
+login. With a private repo, anyone who opens `/admin` and signs in with a GitHub
+account that is not a collaborator gets a token that cannot read the repo at all
+— the editor loads empty and does nothing.
 
-Along with `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` from step 5 — all four
-belong here.
-
-Set the scope to **All deploy contexts** so deploy previews are protected too.
-
-> If these are missing the editor screen returns 503 for everyone — it fails
-> closed on purpose, so a misconfiguration can never leave it wide open.
-
-Locally these come from `.env` instead (copy `.env.example` to `.env`).
+Netlify keeps building a private repo normally on the free tier.
 
 ## 7. Invite your friend
 
@@ -92,11 +84,9 @@ access. She accepts the emailed invite — that is the only time she sees GitHub
 
 ## 8. Send her the link
 
-Send her `https://creativeturns.netlify.app/admin/`, plus the username and password
-from step 6, and `EDITING.md`. Tell her to bookmark the link.
-
-Send the password over something other than the same channel as the link if you
-can — WhatsApp for one, email for the other.
+Send her `https://creativeturns.netlify.app/admin/` and `EDITING.md`. Tell her to
+bookmark the link. There is no password to pass on — her GitHub account is the
+only credential.
 
 ---
 
@@ -104,8 +94,7 @@ can — WhatsApp for one, email for the other.
 
 | She does | What actually happens |
 |---|---|
-| Opens `/admin/` | Browser asks for the username and password (edge function) |
-| Logs in with GitHub | GitHub OAuth, token stored in her browser |
+| Opens `/admin/` and logs in with GitHub | OAuth via this site's own functions, token stored in her browser |
 | Edits and clicks **Save** | Commit on a `cms/...` branch + a pull request |
 | Waits for the preview link | Netlify builds a Deploy Preview of that branch |
 | Sets status to **Ready**, clicks **Publish** | PR merges to `main` |
@@ -114,18 +103,17 @@ can — WhatsApp for one, email for the other.
 Nothing reaches `main` until she presses Publish, and every change is an ordinary
 commit — so `git revert` undoes anything that goes wrong.
 
-## The two locks
+## Where the security actually lives
 
-They protect different things and neither replaces the other:
+One lock, in the right place: **GitHub collaborator access on a private repo.**
 
-1. **Username and password** (`netlify/edge-functions/admin-auth.js`) stops
-   anyone from *loading* the editor screen. `/admin/` is a public URL otherwise —
-   this is what keeps strangers out.
-2. **GitHub collaborator access** stops anyone from *saving* a change. Even
-   someone who got past the password cannot write to the repo without it.
+`/admin` is a public URL and always will be — it is a static page on a public
+site. That does not matter. Because the repo is private, a stranger who loads it
+and signs in gets a token that can neither read nor write anything, so the editor
+is an empty shell to them.
 
-Changing the password is a Netlify environment variable edit plus a redeploy; it
-does not require a code change.
+Revoking access is therefore one action: remove her as a collaborator. There is
+no shared password to rotate for everyone else.
 
 ## Guardrails worth knowing
 
