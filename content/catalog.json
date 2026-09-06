@@ -1,0 +1,140 @@
+{
+  "sections": [
+    {
+      "id": "hair",
+      "alt": false,
+      "kicker": "Our bestsellers",
+      "title": "Hair accessories, for every age",
+      "blurb": "Crochet bows, flower claws and festive headbands — plus a soft range made just for little ones.",
+      "subsections": [
+        {
+          "title": "Crochet bows",
+          "blurb": "Our signature lacy bow, in colours to match every outfit.",
+          "cols": "4",
+          "items": [
+            {
+              "label": "Sky Blue",
+              "src": "https://via.placeholder.com/300x400/D6CDEF/4A3A40?text=Sky+Blue+Bow",
+              "alt": "Pastel blue crochet bow hair clip"
+            },
+            {
+              "label": "Blossom Pink",
+              "src": "https://via.placeholder.com/300x400/F3C7D3/4A3A40?text=Blossom+Pink",
+              "alt": "Pastel pink crochet bow hair clip"
+            },
+            {
+              "label": "Lilac",
+              "src": "https://via.placeholder.com/300x400/C7E6D9/4A3A40?text=Lilac",
+              "alt": "Lilac crochet bow hair clip"
+            },
+            {
+              "label": "Bow Rubber Ties",
+              "src": "https://via.placeholder.com/300x400/F6E3A8/4A3A40?text=Rubber+Ties",
+              "alt": "Crochet bow rubber tie in coral and blue"
+            }
+          ]
+        },
+        {
+          "title": "Flower claws & clips",
+          "blurb": "Chunky crochet flowers set onto claw clips and snap clips.",
+          "cols": "2",
+          "items": [
+            {
+              "label": "Flower Claw Clips",
+              "src": "https://via.placeholder.com/400x533/D6CDEF/4A3A40?text=Flower+Claws",
+              "alt": "Crochet flower claw clips in pink, blue and purple"
+            },
+            {
+              "label": "The Full Range",
+              "src": "https://via.placeholder.com/400x533/F3C7D3/4A3A40?text=Flower+Range",
+              "alt": "Flat lay of assorted crochet flower hair clips",
+              "objectPosition": "top"
+            }
+          ]
+        },
+        {
+          "title": "Festive headbands",
+          "blurb": "Our Tulip Hairband — a favourite for celebrations and everyday alike.",
+          "cols": "2",
+          "items": [
+            {
+              "label": "Tulip Hairband — Red",
+              "src": "https://via.placeholder.com/400x533/F3C7D3/4A3A40?text=Red+Tulip",
+              "alt": "Red crochet tulip headband"
+            },
+            {
+              "label": "Tulip Hairband — Yellow",
+              "src": "https://via.placeholder.com/400x533/F6E3A8/4A3A40?text=Yellow+Tulip",
+              "alt": "Yellow crochet tulip headband"
+            }
+          ]
+        },
+        {
+          "title": "Baby & children's hair accessories",
+          "blurb": "Softer, smaller versions of our bows — snag-free and gentle on little heads.",
+          "cols": "2",
+          "items": [
+            {
+              "label": "For little ones",
+              "src": "https://via.placeholder.com/400x533/F3C7D3/4A3A40?text=Child+Pink+Bow",
+              "alt": "Child wearing pink crochet bow hair clips"
+            },
+            {
+              "label": "Everyday styles",
+              "src": "https://via.placeholder.com/400x533/F6E3A8/4A3A40?text=Bow+Styles",
+              "alt": "Yellow and pink bow clips styled on hair",
+              "objectPosition": "top"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouquets",
+      "alt": true,
+      "kicker": "Never wilts",
+      "title": "Crochet & pipe-cleaner bouquets",
+      "blurb": "Bunches of hand-shaped blooms, wrapped and ready to gift.",
+      "cols": "3",
+      "items": [
+        {
+          "label": "Rainbow Bunch",
+          "src": "https://via.placeholder.com/350x467/C7E6D9/4A3A40?text=Rainbow+Bouquet",
+          "alt": "Bouquet of multicoloured pipe-cleaner flowers"
+        },
+        {
+          "label": "Garden Bunch",
+          "src": "https://via.placeholder.com/350x467/D6CDEF/4A3A40?text=Garden+Bouquet",
+          "alt": "Bouquet of purple, blue, yellow and red flowers"
+        },
+        {
+          "label": "Gift-Wrapped Single Stem",
+          "src": "https://via.placeholder.com/350x467/F3C7D3/4A3A40?text=Wrapped+Bouquet",
+          "alt": "Single wrapped teal flower bouquet with gold ribbon"
+        }
+      ]
+    },
+    {
+      "id": "keychains",
+      "alt": false,
+      "kicker": "Small & giftable",
+      "title": "Keychains & bag charms",
+      "blurb": "Little crochet charms that dress up a bag, a bunch of keys, or a return-gift bag.",
+      "cols": "2",
+      "items": [
+        {
+          "label": "Grape Bunch Charm",
+          "src": "https://via.placeholder.com/400x533/C7E6D9/4A3A40?text=Grape+Keychain",
+          "alt": "Purple crochet grape bunch keychain on a white backpack",
+          "objectPosition": "top"
+        },
+        {
+          "label": "Heart Charm Chain",
+          "src": "https://via.placeholder.com/400x533/F3C7D3/4A3A40?text=Heart+Charm",
+          "alt": "Red and white heart keychains on backpacks",
+          "objectPosition": "top"
+        }
+      ]
+    }
+  ]
+}

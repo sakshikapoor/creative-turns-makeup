@@ -1,0 +1,22 @@
+{
+  "name": "Creative Turns",
+  "logo": "https://via.placeholder.com/42x42/C97A93/FFFFFF?text=CT",
+  "phoneDisplay": "+91 99532 81500",
+  "whatsapp": "https://wa.me/919953281500",
+  "instagramHandle": "@creative_turns",
+  "instagram": "https://instagram.com/creative_turns",
+  "tagline": "Handmade crochet — hair accessories, bouquets, keychains & gifting.",
+  "navLinks": [
+    { "href": "#hair", "label": "Hair Accessories" },
+    { "href": "#bouquets", "label": "Bouquets" },
+    { "href": "#keychains", "label": "Keychains" },
+    { "href": "#more", "label": "Home & Festive" },
+    { "href": "#gifting", "label": "Gifting" }
+  ],
+  "footerLinks": [
+    { "href": "#hair", "label": "Hair Accessories" },
+    { "href": "#bouquets", "label": "Bouquets" },
+    { "href": "#keychains", "label": "Keychains" },
+    { "href": "#gifting", "label": "Gifting" }
+  ]
+}

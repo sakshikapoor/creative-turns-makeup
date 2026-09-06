@@ -1,0 +1,11 @@
+{
+  "kicker": "Coming to the shop",
+  "title": "Home decor, festive & pooja decor, hampers",
+  "blurb": "We also take orders for these — message us on WhatsApp for photos and pricing.",
+  "tiles": [
+    { "icon": "home", "label": "Home Decor" },
+    { "icon": "lamp", "label": "Festive & Pooja Decor" },
+    { "icon": "gift", "label": "Hampers" },
+    { "icon": "building", "label": "Corporate Gifting" }
+  ]
+}

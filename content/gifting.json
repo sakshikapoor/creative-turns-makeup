@@ -1,0 +1,27 @@
+{
+  "kicker": "For bigger occasions",
+  "title": "Gifting, made to hand over",
+  "blurb": "Small tokens for a big guest list, or considered gifts for a client.",
+  "columns": [
+    {
+      "icon": "gift",
+      "title": "Return gifts",
+      "blurb": "Bulk-friendly favours for birthdays, baby showers and weddings — same design, made consistent across the full set.",
+      "points": [
+        "Ordered in sets of 10 and up",
+        "Choose a keychain, hairclip or mini bouquet",
+        "Individually packed on request"
+      ]
+    },
+    {
+      "icon": "building",
+      "title": "Corporate gifting",
+      "blurb": "Branded, considered pieces for client hampers, employee milestones and festive gifting — quoted per bulk order.",
+      "points": [
+        "Custom colours to match your brand",
+        "Tags or notes added to each piece",
+        "Lead time confirmed before production"
+      ]
+    }
+  ]
+}
