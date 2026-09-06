@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Deploy Previews are what makes "stage mode" work: every draft the CMS opens
+# gets its own build at a unique URL, which Decap links to from the editor.
+[context.deploy-preview]
+  command = "npm run build"
+
+# The site is a single page; keep deep links working.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Never let the editor screen be indexed.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

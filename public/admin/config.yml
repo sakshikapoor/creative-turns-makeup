@@ -1,0 +1,228 @@
+backend:
+  name: github
+  repo: sakshikapoor/creative-turns-makeup
+  branch: main
+
+# Every save becomes a draft with its own preview link, and nothing reaches the
+# live site until the editor presses Publish.
+publish_mode: editorial_workflow
+
+# Uploaded photos land in public/images/ and are referenced as /images/<file>.
+media_folder: public/images
+public_folder: /images
+
+site_url: https://creative-turns.netlify.app        # <-- CHANGE to your live URL
+display_url: https://creative-turns.netlify.app     # <-- CHANGE to your live URL
+
+locale: en
+
+collections:
+  - name: products
+    label: Products
+    label_singular: product section
+    delete: false
+    files:
+      - name: catalog
+        label: Product sections & photos
+        file: content/catalog.json
+        description: >-
+          Every product group on the page. Open a section to rename it, edit its
+          wording, or add and replace photos.
+        fields:
+          - name: sections
+            label: Sections
+            label_singular: section
+            widget: list
+            collapsed: true
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: Section heading, widget: string }
+              - { name: kicker, label: Small label above the heading, widget: string }
+              - { name: blurb, label: Short description, widget: text }
+              - name: id
+                label: Menu link name
+                widget: string
+                hint: >-
+                  The one-word name the top menu uses to jump here. Avoid
+                  changing this on existing sections or the menu link will break.
+              - name: alt
+                label: Shaded background
+                widget: boolean
+                default: false
+                required: false
+                hint: Alternates the section background colour.
+              - name: cols
+                label: Photos per row
+                widget: select
+                required: false
+                options: ['2', '3', '4']
+                hint: Only used when this section has photos directly (no groups).
+              - name: items
+                label: Photos
+                label_singular: photo
+                widget: list
+                required: false
+                collapsed: true
+                summary: '{{fields.label}}'
+                hint: Leave empty if this section is split into groups below.
+                fields:
+                  - { name: label, label: Caption, widget: string }
+                  - { name: src, label: Photo, widget: image }
+                  - name: alt
+                    label: Photo description
+                    widget: string
+                    hint: Describes the photo for people using a screen reader.
+                  - name: objectPosition
+                    label: Photo focus
+                    widget: select
+                    required: false
+                    options: ['top', 'center', 'bottom']
+                    hint: Which part of the photo to keep in frame when cropped.
+              - name: subsections
+                label: Groups
+                label_singular: group
+                widget: list
+                required: false
+                collapsed: true
+                summary: '{{fields.title}}'
+                hint: Use groups to split a section into named sets of photos.
+                fields:
+                  - { name: title, label: Group heading, widget: string }
+                  - { name: blurb, label: Short description, widget: text }
+                  - name: cols
+                    label: Photos per row
+                    widget: select
+                    options: ['2', '3', '4']
+                  - name: items
+                    label: Photos
+                    label_singular: photo
+                    widget: list
+                    collapsed: true
+                    summary: '{{fields.label}}'
+                    fields:
+                      - { name: label, label: Caption, widget: string }
+                      - { name: src, label: Photo, widget: image }
+                      - { name: alt, label: Photo description, widget: string }
+                      - name: objectPosition
+                        label: Photo focus
+                        widget: select
+                        required: false
+                        options: ['top', 'center', 'bottom']
+
+  - name: pages
+    label: Page wording
+    delete: false
+    files:
+      - name: hero
+        label: Homepage banner
+        file: content/hero.json
+        fields:
+          - { name: eyebrow, label: Small label above the headline, widget: string }
+          - name: heading
+            label: Headline
+            widget: string
+            hint: >-
+              Put *asterisks* around a word to make it italic, like
+              "turns *everyday* into".
+          - { name: lede, label: Paragraph under the headline, widget: text }
+          - { name: primaryLabel, label: Main button text, widget: string }
+          - { name: secondaryLabel, label: Second button text, widget: string }
+          - { name: image, label: Banner photo, widget: image }
+          - { name: imageAlt, label: Photo description, widget: string }
+          - { name: sticker, label: Sticker text on the photo, widget: string }
+
+      - name: intro
+        label: Quote strip
+        file: content/intro.json
+        fields:
+          - { name: quote, label: Quote, widget: text }
+          - { name: attribution, label: Who said it, widget: string }
+
+      - name: categories
+        label: '"Coming to the shop" tiles'
+        file: content/categories.json
+        fields:
+          - { name: kicker, label: Small label above the heading, widget: string }
+          - { name: title, label: Heading, widget: string }
+          - { name: blurb, label: Short description, widget: text }
+          - name: tiles
+            label: Tiles
+            label_singular: tile
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Tile text, widget: string }
+              - name: icon
+                label: Icon
+                widget: select
+                options: ['home', 'lamp', 'gift', 'building']
+
+      - name: gifting
+        label: Gifting section
+        file: content/gifting.json
+        fields:
+          - { name: kicker, label: Small label above the heading, widget: string }
+          - { name: title, label: Heading, widget: string }
+          - { name: blurb, label: Short description, widget: text }
+          - name: columns
+            label: Columns
+            label_singular: column
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: Column heading, widget: string }
+              - { name: blurb, label: Description, widget: text }
+              - name: icon
+                label: Icon
+                widget: select
+                options: ['home', 'lamp', 'gift', 'building']
+              - name: points
+                label: Bullet points
+                label_singular: point
+                widget: list
+                field: { name: point, label: Point, widget: string }
+
+      - name: cta
+        label: Contact banner
+        file: content/cta.json
+        fields:
+          - { name: heading, label: Heading, widget: string }
+          - { name: blurb, label: Description, widget: text }
+
+  - name: settings
+    label: Site details
+    delete: false
+    files:
+      - name: site
+        label: Name, contact & menu
+        file: content/site.json
+        fields:
+          - { name: name, label: Business name, widget: string }
+          - { name: logo, label: Logo, widget: image }
+          - { name: tagline, label: Footer tagline, widget: text }
+          - { name: phoneDisplay, label: Phone number as shown, widget: string }
+          - name: whatsapp
+            label: WhatsApp link
+            widget: string
+            hint: 'Format: https://wa.me/91XXXXXXXXXX (country code, no spaces or +).'
+          - { name: instagramHandle, label: Instagram handle, widget: string }
+          - { name: instagram, label: Instagram link, widget: string }
+          - name: navLinks
+            label: Top menu
+            label_singular: menu item
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Menu text, widget: string }
+              - name: href
+                label: Jumps to
+                widget: string
+                hint: 'A # followed by a section''s menu link name, e.g. #hair'
+          - name: footerLinks
+            label: Footer menu
+            label_singular: menu item
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Menu text, widget: string }
+              - { name: href, label: Jumps to, widget: string }
