@@ -2,6 +2,10 @@ backend:
   name: github
   repo: sakshikapoor/creative-turns-makeup
   branch: main
+  # Netlify's hosted OAuth service (api.netlify.com/auth) now returns 404, so
+  # the login handshake runs on this site instead -- see netlify/functions/.
+  base_url: https://creativeturns.netlify.app
+  auth_endpoint: oauth/auth
 
 # Every save becomes a draft with its own preview link, and nothing reaches the
 # live site until the editor presses Publish.

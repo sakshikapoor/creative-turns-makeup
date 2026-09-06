@@ -35,20 +35,35 @@ its own temporary URL so she can see the change before it goes live.
 
 ## 5. Let the editor screen log in with GitHub
 
-The CMS needs permission to commit on her behalf. Create a GitHub OAuth app and
-hand the credentials to Netlify:
+Netlify used to host this handshake at `api.netlify.com/auth`. **That service now
+returns 404**, so this site runs its own instead — `netlify/functions/oauth-*.mjs`.
+Nothing to deploy separately; it ships with the site.
+
+You still need a GitHub OAuth app so GitHub knows to trust the site:
 
 1. GitHub → **Settings → Developer settings → OAuth Apps → New OAuth App**
    - Application name: `Creative Turns editor`
-   - Homepage URL: your Netlify URL
-   - Authorization callback URL: `https://api.netlify.com/auth/done`
-2. Generate a client secret and copy both the **Client ID** and **Client Secret**.
-3. In Netlify: **Site configuration → Access control → OAuth → Install provider →
-   GitHub**, and paste the two values.
+   - Homepage URL: `https://creativeturns.netlify.app`
+   - **Authorization callback URL: `https://creativeturns.netlify.app/oauth/callback`**
 
-> If Netlify's hosted OAuth provider is unavailable on your plan, the alternative
-> is a small OAuth relay you deploy once (a Netlify Function or Cloudflare Worker)
-> and point at with a `base_url` line in `config.yml`. Ask and I'll add it.
+   That callback URL must match exactly — it is the single most common thing to
+   get wrong, and a mismatch gives a GitHub error page rather than a login.
+
+2. Click **Generate a new client secret**. Copy the **Client ID** and the
+   **secret** now; GitHub will not show the secret again.
+
+3. Add them in Netlify → **Site configuration → Environment variables**, the same
+   place as the editor password:
+
+   | Key | Value |
+   |---|---|
+   | `GITHUB_CLIENT_ID` | the Client ID |
+   | `GITHUB_CLIENT_SECRET` | the secret |
+
+   Scope them to **all scopes**, then redeploy.
+
+The secret only ever lives in Netlify's environment. It is never in the repo and
+never reaches the browser.
 
 ## 6. Set the editor password
 
@@ -59,6 +74,9 @@ login. Set them in **Site configuration → Environment variables**:
 |---|---|
 | `ADMIN_USER` | e.g. `creativeturns` |
 | `ADMIN_PASSWORD` | a strong password you choose |
+
+Along with `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` from step 5 — all four
+belong here.
 
 Set the scope to **All deploy contexts** so deploy previews are protected too.
 

@@ -31,6 +31,7 @@ content/*.json          all editable text and photo references
 public/images/          photos uploaded through the CMS
 public/admin/           the browser-based editing screen (Decap CMS)
 netlify/edge-functions/ Basic Auth guarding /admin
+netlify/functions/      GitHub OAuth handshake for the CMS login
 netlify.toml            build + deploy-preview settings
 legacy-index.html       the original static page, kept for reference
 ```
@@ -46,6 +47,9 @@ Saving creates a draft with its own preview URL; pressing Publish merges it to
 
 `/admin` is guarded by two independent locks: an HTTP Basic Auth edge function
 (who can load the screen) and GitHub collaborator permissions (who can save).
+
+The GitHub login handshake is self-hosted in `netlify/functions/` because
+Netlify's old hosted service at `api.netlify.com/auth` now returns 404.
 
 - **[SETUP.md](SETUP.md)** — one-time Netlify + GitHub setup (for you)
 - **[EDITING.md](EDITING.md)** — plain-language guide (for the editor)
